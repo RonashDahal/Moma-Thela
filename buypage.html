@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Moma-Thela</title>
+    <link rel="stylesheet" type="text/css" href="minimum.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="iconlogo.png">
+<style>
+        body {
+            background-color: #070e16;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            background: #0e1621;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+        .product-image {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .title {
+            font-size: 28px;
+            margin: 10px 0;
+        }
+        .price {
+            font-size: 22px;
+            color: #ffcc00;
+        }
+        .rating {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .category {
+            font-size: 18px;
+            margin: 10px 0;
+            font-weight: bold;
+            color: #3df705;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .btn-quantity {
+            width: 35px;
+            height: 35px;
+            font-size: 18px;
+            border: none;
+            background-color: #ffcc00;
+            color: black;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            height: 35px;
+        }
+        .btn-buy {
+            width: 48%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff4500;
+            color: white;
+        }
+        
+</style>
+
+
+
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="logo">
+                <a href="index.html"><img src="iconlogo.png" alt="Moma-Thela Logo"></a>
+            </div>
+            <nav>
+                <ul >
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="shop.html">Menu</a></li>
+                    <li><a href="backendfiles/myorders.php">My Orders</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+     
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 text-center">
+                    <img src="steam2.png" alt="Delicious Momo" class="product-image">
+                </div>
+                <div class="col-md-7 d-flex flex-column justify-content-center">
+                    <h1 class="title">Steamed Momo</h1>
+                    <p class="price">RS.80 per plate</p>
+                    <p class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"><i class="fa-solid fa-star-half"></i></i> (4.5/5 based on Sujan Sapkota review)</p>
+                    <p class="category">Category: Vegetarian</p>
+                    <div class="quantity-controls">
+                        <span>Quantity:(Plate)</span>
+                        <button class="btn-quantity" onclick="changeQuantity(-1)">-</button>
+                        <input type="number" id="quantity" class="quantity-input" min="1" value="1">
+                        <button class="btn-quantity" onclick="changeQuantity(1)">+</button>
+                    </div>
+                    <div class="mt-3">
+                         <button onclick="checkout();" class="btn btn-buy">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 m1-3">
+                <h2>About This Momo</h2>
+                <p class="about-description"></p>
+             <div class="ml-3">
+                <h3>Features:</h3>
+                <ul class="features-list"></ul>
+             </div>
+            </div>
+        </div>
+
+
+
+  
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="iconlogo.png" alt="Logo">
+                </div>
+                <nav class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#menu">Menu</a>
+                    <a href="#reservations">Reservations</a>
+                    <a href="#testimonials">Reviews</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <p class="footer-text">&copy; 2024 Moma-Thela. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function changeQuantity(amount) {
+    let quantityInput = document.getElementById('quantity');
+    let currentValue = parseInt(quantityInput.value) || 0; 
+
+    let newValue = currentValue + amount;
+    if (newValue >= 1) {
+        quantityInput.value = newValue;
+    } else {
+        quantityInput.value = 1;
+    }
+}
+
+    </script>
+    <script>
+        function checkout(){
+            window.location.href = 'checkout0.html';
+        }
+window.addEventListener('DOMContentLoaded', function() {
+   
+    const momoDetails = JSON.parse(localStorage.getItem('selectedMomo'));
+
+  
+    if (momoDetails) {
+      
+        document.querySelector('.title').textContent = momoDetails.name;
+        document.querySelector('.price').textContent = momoDetails.price;
+        document.querySelector('.product-image').src = momoDetails.image;
+
+      
+        let aboutText = "";
+        let featuresList = [];
+
+       
+        if (momoDetails.name === "Curry Momo") {
+            aboutText = "Curry Momo is served with a rich, flavorful curry sauce made from fresh ingredients.";
+            featuresList = [
+                "Rich and flavorful curry sauce",
+                "Perfect for spice lovers",
+                "A fusion of tradition and taste"
+            ];
+        } else if (momoDetails.name === "Fried Momo") {
+            aboutText = "Fried Momo is crispy and golden-brown with a flavorful veggie filling.";
+            featuresList = [
+                "Crispy texture on the outside",
+                "Veggie-filled dumplings",
+                "Perfect for snacking or as a starter"
+            ];
+        } else if (momoDetails.name === "Steamed Momo") {
+            aboutText = "Steamed Momo is the classic momo, steamed to perfection and served with a tasty dipping sauce.";
+            featuresList = [
+                "Classic, soft, and juicy",
+                "Ideal for a healthy snack",
+                "Served with a tangy dipping sauce"
+            ];
+        } else if (momoDetails.name === "Jhol Momo") {
+            aboutText = "Jhol Momo is steamed momo drenched in a spicy, tangy tomato-based soup.";
+            featuresList = [
+                "Delicious and spicy tomato-based soup",
+                "Perfect for those who love tangy flavors",
+                "A must-try for momo lovers"
+            ];
+        } else if (momoDetails.name === "Chili Momo") {
+            aboutText = "Chili Momo is stir-fried with chilies and bold flavors for those who love spice.";
+            featuresList = [
+                "Spicy and flavorful",
+                "Stir-fried with fresh chilies and spices",
+                "Ideal for spice enthusiasts"
+            ];
+        } else if (momoDetails.name === "Tandoori Veg Momo") {
+            aboutText = "Tandoori Veg Momo is marinated, smoky, and cooked in a tandoor for a charred finish.";
+            featuresList = [
+                "Smoky and charred",
+                "Marinated in authentic tandoori spices",
+                "Great for those looking for a unique flavor"
+            ];
+        } else if (momoDetails.name === "Momo Chaat") {
+            aboutText = "Momo Chaat is a fusion dish with crispy momos topped with curd, chutneys, and crunchy toppings.";
+            featuresList = [
+                "A street-style fusion dish",
+                "Combination of crispy and creamy textures",
+                "Great for those who love chaat"
+            ];
+        }
+
+      
+        document.querySelector('.about-description').textContent = aboutText;
+
+       
+        const featuresListElement = document.querySelector('.features-list');
+        featuresListElement.innerHTML = ''; 
+
+        featuresList.forEach(feature => {
+            const listItem = document.createElement('li');
+            listItem.textContent = feature;
+            featuresListElement.appendChild(listItem);
+        });
+    }
+});
+
+
+
+//Qcode
+function changeQuantity(amount) {
+    let quantityInput = document.getElementById('quantity');
+    if (!quantityInput) {
+        console.error("Quantity input field not found!");
+        return;
+    }
+    console.log(quantityInput.value);
+    let currentValue = parseInt(quantityInput.value) || 1; 
+    if (currentValue + amount >= 1) {
+        quantityInput.value = currentValue + amount;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    let buyButton = document.querySelector('.btn-buy');
+    if (!buyButton) {
+        console.error("Buy button not found!");
+        return;
+    }
+
+    buyButton.addEventListener('click', function(event) {
+    event.preventDefault(); 
+
+    let quantityInput = document.getElementById('quantity');
+    let quantity = parseInt(quantityInput.value) || 1; 
+
+    let momoDetails = JSON.parse(localStorage.getItem('selectedMomo')) || {};
+    momoDetails.quantity = quantity; 
+    localStorage.setItem('selectedMomo', JSON.stringify(momoDetails));
+
+    window.location.href = 'checkout0.html'; 
+});
+
+});
+
+    </script>
+</body>
+</html>

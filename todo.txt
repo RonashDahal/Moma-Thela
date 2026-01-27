@@ -1,0 +1,7 @@
+Integrate Login Panel
+
+Make Admin Panel(To include):-
+Orders
+Manage orders
+Add new product.
+manage reservation and contact form.

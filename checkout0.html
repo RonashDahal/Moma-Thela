@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Moma-Thela</title>
+    <link rel="stylesheet" type="text/css" href="minimum.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="iconlogo.png">
+    <style>
+        body { 
+            background-color: #070e16;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #111827;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+        .summary {
+            text-align: left;
+            margin-top: 20px;
+        }
+        .summary p {
+            display: flex;
+            justify-content: space-between;
+        }
+        .total {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .momo-img {
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+        }
+        .sauce-selection {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .backbtn{
+            margin-right:34rem;
+            margin-bottom:0.5rem ;
+            width:15%;
+        }
+        .backbtn a{
+            text-decoration: none;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="logo">
+               <a href="index.html"><img src="iconlogo.png" alt="Moma-Thela Logo"></a>
+            </div>
+            <nav>
+                <ul >
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="shop.html">Menu</a></li>
+                    <li><a href="backendfiles/myorders.php">My Orders</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container text-center p-4">
+            <a href="buypage.html"><button class="btn backbtn btn-primary"><i class="fa-solid mr-1 fa-arrow-left"></i>Back</button></a>
+            <h1 class="mb-3">Steam Momo Checkout</h1>
+            <p>Review your order before proceeding to checkout.</p>
+            
+            <img src="steam2.png" alt="Delicious Momo" class="momo-img">
+            
+            <div class="summary">
+                <p><span>Item Quantity:</span> <span>1</span></p>
+                <p><span>Item Cost:</span> <span>RS.80</span></p>
+                <p><span>Shipping Fee:</span> <span>RS.20</span></p>
+                <p class="total"><span>Total:</span> <span>RS.100</span></p>
+            </div>
+            
+            <div class="sauce-selection">
+                <label for="sauce" class="form-label">Choose your sauce:</label>
+                <select id="sauce" class="form-select">
+                    <option value="Tomato-Sauce">Tomato Sauce</option>
+                    <option value="Mayonnaise">Mayonnaise</option>
+                    <option value="Aesthetic Nepali Local Sauce">Aesthetic Nepali Local Sauce</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-primary mt-3" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+
+
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="iconlogo.png" alt="Logo">
+                </div>
+                <nav class="footer-links">
+                    <a href="#">Home</a>
+                    <a href="../Ronash/index.html#about">About</a>
+                    <a href="../Ronash/shop.html">Menu</a>
+                    <a href="../Ronash/index.html#reservations">Reservations</a>
+                    <a href="../Ronash/index.html#testimonials">Reviews</a>
+                    <a href="../Ronash/index.html#gallery">Gallery</a>
+                    <a href="../Ronash/index.html#contact">Contact</a>
+                </nav>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <p class="footer-text">&copy; 2024 Moma-Thela. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   
+</body>
+<script>
+   window.addEventListener('DOMContentLoaded', function() {
+    const momoDetails = JSON.parse(localStorage.getItem('selectedMomo'));
+
+    if (momoDetails) {
+        document.querySelector('h1').textContent = momoDetails.name + " Checkout";
+        document.querySelector('.momo-img').src = momoDetails.image;
+
+        let quantity = momoDetails.quantity ? parseInt(momoDetails.quantity) : 1;
+        const itemPrice = parseInt(momoDetails.price.replace("RS.", "").trim());
+        const shippingFee = 20;
+        const totalCost = itemPrice * quantity + shippingFee;
+
+        document.querySelector('.summary').innerHTML = `
+            <p><span>Item Quantity:</span> <span>${quantity}</span></p>
+            <p><span>Item Cost:</span> <span>RS.${itemPrice * quantity}</span></p>
+            <p><span>Shipping Fee:</span> <span>RS.${shippingFee}</span></p>
+            <p class="total"><span>Total:</span> <span>RS.${totalCost}</span></p>
+        `;
+
+        // Check if sauce was already selected in localStorage
+        const selectedSauce = localStorage.getItem('selectedSauce');
+        if (selectedSauce) {
+            document.getElementById("sauce").value = selectedSauce;
+        }
+    }
+});
+
+function proceedToCheckout() {
+    const selectedSauce = document.getElementById("sauce").value;
+
+    // Save selected sauce in localStorage
+    localStorage.setItem('selectedSauce', selectedSauce);
+ console.log(selectedSauce);
+
+    window.location.href = 'checkout1.php';
+}
+
+</script>
+</html>

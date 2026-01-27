@@ -1,0 +1,128 @@
+*{
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+/*header*/
+
+header {
+  background-color: #070e16;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  height: 3.8rem;
+  margin-left:50px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #ff0000;
+  text-decoration: none;
+}
+
+
+
+/* Ensure body takes full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #070e16;
+  }
+  
+  /* Main container should take the remaining space */
+  .main-container {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .footer {
+    margin-top: auto;  /* Push footer to the bottom */
+    background-color: #070e16;
+    padding: 40px 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+  
+  .footer-logo img {
+    max-width: 150px;
+  }
+  
+  .footer-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+  
+  .footer-social a {
+    color: #fff;
+    margin: 0 5px;
+    text-decoration: none;
+  }
+  
+  .footer-text {
+    font-size: 14px;
+  }
+  /*card */
+  .card {
+    width: 18rem;
+    height: 30rem;
+    background-color: #070e16; 
+    border: none;
+    box-shadow: 0 4px 10px 7px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 10px; /* Optional: for rounded corners */
+}
+
+.card img {
+    object-fit: cover; /* Ensures the image fits properly */
+    width: 100%; /* Takes up full width of the card */
+    height: 50%; /* Adjusts the height, you can change this based on your design */
+    border-top-left-radius: 10px; /* Optional: for rounded corners on the top image */
+    border-top-right-radius: 10px; /* Optional: for rounded corners on the top image */
+}
+
+.card-content {
+    padding: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+  .typetitle{
+    font-weight:bolder;
+    color:#F4EAED;
+  }
+  
